@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ol>
+            <li v-for="list in lists"></li>
+        </ol>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            //objeto que defini vários dados que será utilizado no html
+            data: {
+                lists: []
+            },
+            created() {
+                // searchDirectory() {
+                    console.log('foi');
+                    // var goodLinks = $.grep(allLinks, function (el) {
+                    //     return (el.pathname != '/');
+                    // });
+                    // var arrayFinal = [];
+                    // $(goodLinks).each(function (i) {
+                    //     var objeto = {
+                    //         nome: this.pathname.split('.')[0],
+                    //         estencao: this.pathname.split('.')[1] || ''
+                    //     }
+                    //     arrayFinal.push(objeto);
+                    // });
+                    // console.log(goodLinks);
+                    // console.log(arrayFinal[0]);
+                // }
+            },
+            methods: {
+                alterarTiruloA: function (event) {
+                    this.tituloa = event.target.value
+                },
+                alterarTiruloB(event) {
+                    this.titulob = event.target.value
+                }
+            },
+        });
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">sdafasdfsdfsdfa
+        <h1>Modificadores de  Eventos</h1>
+        <p>{{ contador }}</p>
+        <button v-on:click="somar(5, $event)">Add</button>
+        <p v-on:mousemove="atualizaXY">
+            Mouse: {{ x }}, {{ y }}
+            <span v-on:mousemove="parar">Parar aki!</span>
+            <span v-on:mousemove.stop>STOP aki!</span>
+            <span v-on:mousemove.stop.prevent>Stop Prevent</span>
+        </p>
+        <a v-on:click.prevent href="http://google.com.br" target="_blank">Google - Prevent</a>
+        <br>
+        <br>
+        <a v-on:click="naoNavegar" href="http://google.com.br" target="_blank">Google - Não navegar</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            //objeto que defini vários dados que será utilizado no html
+            data: {
+                contador: 0,
+                x: 0,
+                y: 0
+            }, 
+            methods: {
+                somar: function(passo, event) {
+                    console.log(event)  
+                    this.contador += passo
+                },
+                atualizaXY() {
+                    this.x = event.clientX,
+                    this.y = event.clientY
+                },
+                parar(event) {
+                    event.stopPropagation()
+                },
+                naoNavegar(event) {
+                    event.preventDefault()
+                }
+            }
+        });
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Escutando Eventos</h1>
+        <p>{{ contador }}</p>
+        <button v-on:click="somar">Add</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            //objeto que defini vários dados que será utilizado no html
+            data: {
+                contador: 0
+            }, 
+            methods: {
+                somar: function() {
+                    this.contador++
+                }
+            }
+        });
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>

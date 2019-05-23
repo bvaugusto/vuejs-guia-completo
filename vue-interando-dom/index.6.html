@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p v-once>{{ titulo }}</p>
+        <p>{{ saudacao() }}</p>
+        <hr>
+        <!-- Não é uma boa prática -->
+        <p>{{ linkHtml }}</p>
+        <!-- Boa prática, anti XSS Attack -->
+        <p v-html="linkHtml"></p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            //objeto que defini vários dados que será utilizado no html
+            data: {
+                titulo: 'Usando VueJS 2!',
+                linkHtml: '<a href="http://google.com.br" target="_blank">Google</a>'
+            },
+            methods: {
+                saudacao: function() {
+                    this.titulo = 'Freneticamente!'
+                    // resultado sempre tem que ser string
+                    return this.titulo
+                }
+            }
+        });
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>

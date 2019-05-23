@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+            
+        <input type="text" v-on:input="alterarTiruloA">
+        <input type="text" v-on:input="alterarTiruloB">
+
+        <p>{{ titulo }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            //objeto que defini vários dados que será utilizado no html
+            data: {
+                titulo: 'Usando VueJS 2!'
+            },
+            methods: {
+                alterarTiruloA: function(event) {
+                    this.titulo = event.target.value
+                },
+                alterarTiruloB(event) {
+                    this.titulo = event.target.value
+                }
+            }
+        });
+    </script>
+    <style>
+    </style>
+</body>
+</html>

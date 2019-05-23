@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ titulo }}</p>
+        <p>{{ saudacao() }}</p>
+        <p>{{ saudacao2() }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            //objeto que defini vários dados que será utilizado no html
+            data: {
+                titulo: 'Usando VueJS 2!'
+            },
+            methods: {
+                saudacao: function() {
+                    // resultado sempre tem que ser string
+                    return 'Acme'
+                },
+                saudacao2: function() {
+                    let data = Math.pow(8,2);
+                    // resultado sempre tem que ser string
+                    return data
+                }
+            }
+        });
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>
