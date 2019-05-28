@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Propriedade Reativa - Sintaxe Reduzida (Shorthands)</h1>
+
+        <button v-on:click="aumentar">Aumentar</button>
+        <button v-on:click="contador2++">Aumentar</button>
+        <button v-on:click="diminuir">Diminuir</button>
+        <p>Contador: {{ contador }} | {{ contador2}}</p>
+        <!-- <p>Resultado: {{ resultado()}}</p> -->
+        <!-- Invoca método computado -->
+        <p>Resultado: {{ resultado }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            //objeto que defini vários dados que será utilizado no html
+            data: {
+                contador: 0,
+                contador2: 0
+            }, 
+            computed: {
+                //Sincrono
+                resultado() {
+                    console.log('metodo computado')
+                    return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5'
+                }
+            },
+            watch: {
+                contador(novo, antigo) {
+                    console.log('novo '+ novo)
+                    console.log('antigo '+ antigo)
+                    
+                    setTimeout(() => {
+                        this.contador = 0
+                    }, 2000)
+                }
+                // contador(novo, antigo) {
+                //     const contadorThis = this
+                //     setTimeout(function(){
+                //         contadorThis.contador = 0
+                //     }, 2000)
+                // }
+            },
+            methods: {
+                aumentar() {
+                    this.contador++
+                },
+                diminuir() {
+                    this.contador--
+                },
+                // resultado() {
+                //     console.log('pass')
+                //     return this.contador >= 5 ? 'Maior ou igual a 5' : 'Menor que 5'
+                // }
+            }
+        });
+    </script>
+    <style>
+    </style>
+</body>
+
+</html>

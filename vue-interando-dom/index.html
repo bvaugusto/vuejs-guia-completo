@@ -9,30 +9,61 @@
 </head>
 
 <body>
-    <div id="app">sdafasdfsdfsdfa
-        <h1>Modificadores de Evento Teclado </h1>
-        <input type="text" v-on:keyup="exibirAlerta" placeholder="keyUp">
-        <br>
-        <br>
-        <input type="text" v-on:keyup.enter="exibirAlerta" placeholder="keyup enter">
-        <br>
-        <br>
-        <input type="text" v-on:keyup.alt="exibirAlerta" placeholder="keyup alt">
+    <div id="app">
+        <div>
+            <h1>Estilo Dinâmico e Classe CSS 4</h1>    
+        </div>
+        <div class="caixa">
+                <div class="demo" :style="{backgroundColor: cor}"></div>
+                <div class="demo" :style="[meuEstilo, {height: altura}]"></div>
+                <div class="demo" :style="[meuEstilo, {width: largura}]"></div>
+                <div class="demo" :style="[meuEstilo, {width: largura, height: altura}]"></div>
+                <div class="demo"></div>
+        </div>
+        <div>
+                <input type="text" v-model="cor">
+                <input type="text" v-model="largura">
+                <input type="text" v-model="altura">
+        </div>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         new Vue({
             el: '#app',
-            //objeto que defini vários dados que será utilizado no html
-            data: {}, 
-            methods: {
-                exibirAlerta: function() {
-                    console.log('exibirAlerta')
+            data: {
+                cor: 'red',
+                largura: 100,
+                altura: 100
+            },
+            computed: { //propriedade computada
+                meuEstilo() {
+                    return {
+                        backgroundColor: this.cor,
+                        width: `${this.largura}`,
+                        height: this.altura + 'px',
+                        border: '1px solid'
+                    }
                 }
             }
-        });
+        })
     </script>
     <style>
+        #app {
+            /* display: flex;
+            justify-content:space-around; */
+        }
+        .demo {
+            width: 100px;
+            height: 100px;
+            background-color: gray
+        }
+        .girar {transform: rotate(45deg)}
+        .girar2 {transform: rotate(-45deg)}
+        .c1 {background-color: red;}
+        .c2 {background-color: green;}
+        .c3 {background-color: blue;}
+        
     </style>
 </body>
 

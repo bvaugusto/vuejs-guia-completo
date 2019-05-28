@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./desafio-04-estilo/style.css">
+</head>
+<body>
+    <div id="desafio">
+        <!-- Iniciar a execução do efeito usando botão
+            O efeito deve alternamente trocar as classes "destaque" e "encolher"
+            para cada chamda de setInteval.
+            Use a div id="efeito" para associar as classes CSS -->
+        <h2>#01</h2>
+        <div>
+            <button @click="iniciarEfeito">Iniciar Efeito</button>
+            <div id="efeito" :class="destaque" :style="[]"></div>
+        </div>
+        
+        <!-- Crie duas class CSS e associe a div ausando a sintaxe de array -->
+        <h2>#02</h2>
+        <div :class="[{perigo}, 'quadrado']">Estou sem class CSS =/</div>
+
+        <!-- Aplique na div abaixo a classe informada pelo usuário
+            (crie classe CSS de exemplo) -->
+        <h2>#03</h2>
+        <div>
+            <input type="text" v-model="classe3">
+            <div :class="classe3"></div>
+        </div>
+
+        <!-- Aplique na div abaixo a classe informada pelo usuário e 
+            outra classe usando o valor true/false (crie classes CSS de exemplo) -->
+        <h2>#04</h2>
+        <div>
+            <input type="text" v-model="classe4">
+            <input type="text" @input="setPerigo">
+            <div :class="[classe4, {perigo}]"></div>
+        </div>
+
+        <!-- Repita 3, mas utiliznado estilos ao invés de classes CSS
+        Associe os estilos a div abaixo -->
+        <h2>#05</h2>
+        <div>
+            <input type="text" v-model="cor5">
+            <div :style="[estilo5, { backgroundColor: cor5}]"></div>
+        </div>
+
+        <!-- Crie uma barra de progresso simples com setInterval e binding de estilo -->
+        <h2>#06</h2>
+        <div class="">
+            <button @click="iniciarProgresso">Iniciar</button>
+            <div class="barra-progresso">
+                <div class="progresso" :style="[estilo6]">{{ valor }}%</div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="./desafio-04-estilo/app.js"></script>
+</body>
+</html>

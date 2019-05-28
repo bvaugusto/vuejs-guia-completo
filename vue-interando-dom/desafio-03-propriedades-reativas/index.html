@@ -1,0 +1,12 @@
+<script src="https://unpkg.com/vue"></script>
+<div id="desafio">
+    <!-- 1 - Exibir em "resultado" o texto 'Valor Diferente' enquanto "valor" for diferente de 37 -->
+    <!-- 2 - Monitorar as mudanças de "resultado" e reiniciar "valor" para 0 depois de 5 segundos -->
+    <p>Valor atual: {{ valor }}</p>
+    <button @click="valor += 5">Somar 5</button> | <button @click="valor += 1">Somar 1</button>
+    <br>
+    <br>
+    <button @click="valor -= 5">Diminuir 5</button> | <button @click="valor -= 1">Diminuir 1</button>
+    <p>Resultado: {{ resultado }}</p>
+</div>
+<script src="desafio-03-propriedades-reativas/app.js"></script>
